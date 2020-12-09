@@ -193,8 +193,27 @@ Use the getAverageWordLength function below to do the following:
     For example: getAverageWordLength(originalFlavors) should return a number between 0 and 3.     
 */
 
-function getAverageWordLength(/*code here*/){
-    /*code here*/
+function getAverageWordLength(array){
+  // Create a container array for storing number of words per item in array
+  let lengthsContainer = [];
+  
+  // Iterate through array items
+  for (let i = 0; i < array.length; i++) {
+    // Explicitly set item to a named variable for ease of reading
+    let item = array[i];
+    // Split the item, which is a string, into its constituent words
+    let splitStrings = item.split(' ');
+    // Store the number of words (i.e. words length) of the item in the container
+    lengthsContainer.push(splitStrings.length);
+  }
+
+  let totalWords = 0;
+  // Sum all items in the container (i.e. all word lengths) 
+  for (let i = 0; i < lengthsContainer.length; i++) {
+    totalWords += lengthsContainer[i];
+  }
+  // Divide by the total number of items to get the average word length
+  return totalWords / array.length;
 }
 
 
