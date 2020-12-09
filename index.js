@@ -86,8 +86,8 @@ Use the addFlavor function below to do the following:
 
 
 function addFlavor(array, newFlavor){
-   array.unshift(newFlavor);
-   return array;
+  array.unshift(newFlavor);
+  return array;
 }
 
 
@@ -102,8 +102,9 @@ Use the removeLastFlavor function below to do the following:
     For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
 
-function removeLastFlavor(/*your code here*/){
-   /*your code here*/
+function removeLastFlavor(array){
+  array.pop();
+  return array;
 }
 
 
@@ -139,8 +140,10 @@ Use the removeFlavorByName function below to do the following:
     HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/){
-    /*your code here*/
+function removeFlavorByName(array, flavor){
+    let index = array.indexOf(flavor);
+    array.splice(index, 1);
+    return array;
 }
 
 
