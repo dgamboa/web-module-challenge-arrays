@@ -241,10 +241,8 @@ function getRandomFlavors(arrayOne, arrayTwo, arrayThree, arrayFour, length = 31
   while (randomFlavors.length < totalFlavors) {
     // Random index number generator
     let index = Math.floor(Math.random()*allFlavors.length);
-    // Include the randomly selected flavor in our collection
-    randomFlavors.push(allFlavors[index]);
-    // Remove the selected flavor from our comprehensive flavors array to avoid duplicates
-    allFlavors.splice(index,1);
+    // Include the randomly selected flavor in our collection and remove it from the comprehensive flavors array to avoid duplicates
+    randomFlavors.push(allFlavors.splice(index,1)[0]);
   }
   return randomFlavors;
 }
