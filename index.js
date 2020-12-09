@@ -222,17 +222,33 @@ Baskin Robins now offers new flavors, seasonal flavors, and even regional flavor
 from originalFlavors, currentFlavors, seasonalFlavors, and regionalFlavors and store it in an array called randomFlavors.
 
 Use the getRandomFlavors function and new arrays below to do the following:
-    1. Receive the four arrays with all the differnet flavors (originalFlavors is above, the others are below)
+    1. Receive the four arrays with all the different flavors (originalFlavors is above, the others are below)
     2. Randomly pick flavors from all four arrays
-    3. Return a new array called randomFlavors that has a lenght of 31
+    3. Return a new array called randomFlavors that has a length of 31
 
     For example: getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors) might return ["Strawberry Cheesecake", "Eggnog,"..."Chocolate"].
 */
 
 
-function getRandomFlavors(/*code here*/){
-    /*code here*/
+function getRandomFlavors(arrayOne, arrayTwo, arrayThree, arrayFour, length = 31){
+  // Include a placeholder of 31 for the length parameter to make it optional but flexible
+  const totalFlavors = length;
+  // Create an empty randomFlavors array
+  let randomFlavors = [];
+  // Concatenate all flavors into a single iterable array
+  let allFlavors = arrayOne.concat(arrayTwo, arrayThree, arrayFour);
+  // Iterate through all flavors selecting one until we have the needed total
+  while (randomFlavors.length < totalFlavors) {
+    // Random index number generator
+    let index = Math.floor(Math.random()*allFlavors.length);
+    // Include the randomly selected flavor in our collection
+    randomFlavors.push(allFlavors[index]);
+    // Remove the selected flavor from our comprehensive flavors array to avoid duplicates
+    allFlavors.splice(index,1);
+  }
+  return randomFlavors;
 }
+
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
 const newFlavors = [
